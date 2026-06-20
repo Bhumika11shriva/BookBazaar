@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Book Summary</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+header{
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+.container{
+    max-width:800px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+.search-box{
+    display:flex;
+    gap:10px;
+}
+
+input{
+    flex:1;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.summary-box{
+    margin-top:25px;
+    padding:20px;
+    background:#f8fbff;
+    border-left:5px solid #2563eb;
+    border-radius:8px;
+    display:none;
+}
+
+.book-title{
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>📖 AI Book Summary Generator</h1>
+</header>
+
+<div class="container">
+
+    <h2>Get Quick Book Summary</h2>
+
+    <div class="search-box">
+        <input type="text" id="bookInput"
+        placeholder="Enter Book Name">
+        <button onclick="generateSummary()">
+            Generate Summary
+        </button>
+    </div>
+
+    <div class="summary-box" id="summaryBox">
+        <div class="book-title" id="bookTitle"></div>
+        <p id="summaryText"></p>
+    </div>
+
+</div>
+
+<script>
+
+function generateSummary(){
+
+    let book =
+    document.getElementById("bookInput").value.trim();
+
+    let summary = "";
+
+    if(book.toLowerCase() === "rich dad poor dad"){
+        summary =
+        "This book teaches financial literacy, the difference between assets and liabilities, and how to build wealth through smart financial decisions.";
+    }
+
+    else if(book.toLowerCase() === "atomic habits"){
+        summary =
+        "Atomic Habits explains how small daily improvements can lead to remarkable long-term results and help build productive habits.";
+    }
+
+    else if(book.toLowerCase() === "the alchemist"){
+        summary =
+        "The Alchemist follows a young shepherd's journey to discover his destiny and teaches lessons about dreams, courage, and self-discovery.";
+    }
+
+    else{
+        summary =
+        "AI Summary: This book provides valuable knowledge and insights related to its subject. Connect Gemini/OpenAI API for dynamic summaries.";
+    }
+
+    document.getElementById("bookTitle").innerHTML = "📚 " + book;
+    document.getElementById("summaryText").innerHTML = summary;
+    document.getElementById("summaryBox").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>

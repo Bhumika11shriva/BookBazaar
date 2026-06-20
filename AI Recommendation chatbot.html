@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Book Assistant</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+header{
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+.chat-container{
+    width:90%;
+    max-width:700px;
+    margin:30px auto;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+    overflow:hidden;
+}
+
+.chat-box{
+    height:450px;
+    padding:20px;
+    overflow-y:auto;
+}
+
+.bot{
+    background:#e0ecff;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:10px;
+    width:fit-content;
+    max-width:80%;
+}
+
+.user{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+    border-radius:10px;
+    margin-left:auto;
+    margin-bottom:10px;
+    width:fit-content;
+    max-width:80%;
+}
+
+.input-area{
+    display:flex;
+    border-top:1px solid #ddd;
+}
+
+input{
+    flex:1;
+    padding:15px;
+    border:none;
+    outline:none;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🤖 AI Book Assistant</h1>
+</header>
+
+<div class="chat-container">
+
+    <div class="chat-box" id="chatBox">
+        <div class="bot">
+            Hello! Tell me what you're studying or interested in.
+        </div>
+    </div>
+
+    <div class="input-area">
+        <input type="text" id="userInput"
+        placeholder="Example: SSC CHSL, Java, Novel">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+    let input=document.getElementById("userInput");
+    let message=input.value.trim();
+
+    if(message==="") return;
+
+    let chat=document.getElementById("chatBox");
+
+    chat.innerHTML +=
+    `<div class="user">${message}</div>`;
+
+    let reply="";
+
+    if(message.toLowerCase().includes("ssc")){
+        reply=`Recommended Books:<br>
+        📘 Lucent GK<br>
+        📗 RS Aggarwal Quantitative Aptitude<br>
+        📕 Previous Year Papers`;
+    }
+
+    else if(message.toLowerCase().includes("java")){
+        reply=`Recommended Books:<br>
+        📘 Head First Java<br>
+        📗 Java Complete Reference<br>
+        📕 Effective Java`;
+    }
+
+    else if(message.toLowerCase().includes("novel")){
+        reply=`Recommended Books:<br>
+        📘 Rich Dad Poor Dad<br>
+        📗 Atomic Habits<br>
+        📕 The Alchemist`;
+    }
+
+    else{
+        reply=`I recommend searching books related to "${message}" in our catalog.`;
+    }
+
+    setTimeout(()=>{
+        chat.innerHTML +=
+        `<div class="bot">${reply}</div>`;
+        chat.scrollTop=chat.scrollHeight;
+    },500);
+
+    input.value="";
+}
+
+</script>
+
+</body>
+</html>
