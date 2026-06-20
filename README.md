@@ -2,7 +2,7 @@
 
 ## Overview
 
-BookBazaar AI is a web-based platform designed to help students buy and sell used books easily. The platform organizes books into different categories and provides AI-based features for recommendations and summaries.
+BookBazaar  is a web-based platform designed to help students buy and sell used books easily. The platform organizes books into different categories and provides AI-based features for recommendations and summaries.
 
 ## Features
 
@@ -53,7 +53,7 @@ BookBazaar AI is a web-based platform designed to help students buy and sell use
 
 ## Team
 
-BookBazaar AI Development Team
+BookBazaar Development Team
 
 ## Status
 
