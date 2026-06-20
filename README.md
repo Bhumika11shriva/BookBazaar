@@ -1,4 +1,4 @@
-# BookBazaar AI
+# BookBazaar 
 
 ## Overview
 
